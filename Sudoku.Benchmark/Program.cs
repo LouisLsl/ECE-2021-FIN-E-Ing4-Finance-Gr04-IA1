@@ -66,7 +66,7 @@ namespace Sudoku.Benchmark
             Console.WriteLine($"Choose a puzzle index between 1 and {sudokus.Count}");
             var strIdx = Console.ReadLine();
             int.TryParse(strIdx, out var intIdx);
-            var targetSudoku = sudokus[intIdx-1];
+            var targetSudoku = sudokus[intIdx-1];  //un des sudoku de la liste
 
             Console.WriteLine("Chosen Puzzle:");
             Console.WriteLine(targetSudoku.ToString());
@@ -83,7 +83,7 @@ namespace Sudoku.Benchmark
             var cloneSudoku = targetSudoku.CloneSudoku();
             var sw = Stopwatch.StartNew();
 
-            solver.Solve(cloneSudoku);
+            solver.Solve(cloneSudoku);  // resou le sudoku
 
             var elapsed = sw.Elapsed;
             if (!cloneSudoku.IsValid(targetSudoku))
@@ -96,7 +96,7 @@ namespace Sudoku.Benchmark
                 Console.WriteLine("Valid solution:");
             }
             
-            Console.WriteLine(cloneSudoku.ToString());
+            Console.WriteLine(cloneSudoku.ToString());  // affichage de la grille de solution
             Console.WriteLine($"Time to solution: {elapsed.TotalMilliseconds} ms");
 
         }
